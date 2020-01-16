@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  database:
+    image: mongo:4.2
+    restart: always
+    ports:
+      # Host : Container
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: urls
+      MONGO_INITDB_ROOT_USERNAME: potrebitel
+      MONGO_INITDB_ROOT_PASSWORD: parola
