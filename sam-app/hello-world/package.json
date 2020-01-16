@@ -1,0 +1,29 @@
+{
+  "name": "hello_world",
+  "version": "1.0.0",
+  "description": "hello world sample for NodeJS",
+  "main": "app.js",
+  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "@types/mongodb": "^3.3.14",
+    "axios": "^0.18.0",
+    "mongodb": "^3.5.0"
+  },
+  "scripts": {
+    "start": "npm run build && npm run db:init && sleep 1s && npm run local:invoke && npm run db:destroy",
+    "build": "tsc && sam build",
+    "lint": "tslint  -c ../tslint.json --fix",
+    "local:invoke": "cd ..; sam local invoke HelloWorldFunction",
+    "db:init": "docker-compose up -d",
+    "db:destroy": "docker-compose down",
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "ts-lint": "^4.5.1",
+    "typescript": "^3.7.4"
+  }
+}
