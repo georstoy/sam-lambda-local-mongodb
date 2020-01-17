@@ -12,11 +12,13 @@
     "mongodb": "^3.5.0"
   },
   "scripts": {
-    "start": "npm run db:destroy && npm run build && npm run db:init && npm run local:invoke",
-    "build": "npm run lint && tsc && cd ..; sam build",
+    "start": "npm run db:destroy && npm run build && npm run db:init && npm run local:invoke && npm run db:logs",
+    "build": "tsc && npm run lint && cd ..; sam build",
     "lint": "tslint  -c ../tslint.json --project ../ --fix",
-    "local:invoke": "cd ..; sam local invoke HelloWorldFunction",
+    "local:invoke": "cd ..; sam local invoke HelloWorldFunction >> output.json",
     "db:init": "docker-compose up -d && sleep 2s",
+    "db:cli": "mongo mongodb://potrebitel:parola@localhost:27017",
+    "db:logs": "docker container logs sam-lambda-local-mongodb_database_1  >> docker.log",
     "db:destroy": "docker-compose down",
     "test": "mocha tests/unit/"
   },
