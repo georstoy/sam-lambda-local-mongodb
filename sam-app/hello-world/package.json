@@ -12,7 +12,7 @@
     "mongodb": "^3.5.0"
   },
   "scripts": {
-    "start": "npm run build && npm run db:init && npm run local:invoke && npm run db:destroy",
+    "start": "npm run db:destroy && npm run build && npm run db:init && npm run local:invoke",
     "build": "npm run lint && tsc && cd ..; sam build",
     "lint": "tslint  -c ../tslint.json --project ../ --fix",
     "local:invoke": "cd ..; sam local invoke HelloWorldFunction",
