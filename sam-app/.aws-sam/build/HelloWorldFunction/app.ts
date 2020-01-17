@@ -13,14 +13,20 @@ let response: ISuccessResponse;
 export const lambdaHandler = async (): Promise<ISuccessResponse | IErrorResponse> => {
     try {
         /* Failed tries
+        const url = "mongodb://potrebitel:parola@localhost:27017";
+        const url = "mongodb://potrebitel:parola@0.0.0.0:27017";
         const url = "mongodb://potrebitel:parola@database:27017";
 
             Success tries
-            (when sam local invoke --docker-network host)
+                # when sam local invoke --docker-network host
             const url = "mongodb://potrebitel:parola@localhost:27017";
+
+                # when sam local invoke --docker-network sam-lambda-local-mongodb_localLambdaNetwork
+            const url = "mongodb://potrebitel:parola@sam-lambda-local-mongodb_database_1";
+
         */
 
-        const url = "mongodb://potrebitel:parola@sam-lambda-local-mongodb_database_1";
+        const url = "mongodb://potrebitel:parola@192.168.0.34:27017";
 
         console.log("about to establish a connection to MongoDb...");
         const client = await MongoClient.connect(url, { useUnifiedTopology: true });

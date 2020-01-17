@@ -1,1 +1,3 @@
 sam-app/output.json
+*.js
+*.d.ts

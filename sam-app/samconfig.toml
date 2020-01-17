@@ -1,0 +1,9 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "MongoLambdas"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-122c0xa87ly45"
+s3_prefix = "MongoLambdas"
+region = "eu-west-1"
+capabilities = "CAPABILITY_IAM"

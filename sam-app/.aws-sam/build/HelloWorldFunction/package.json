@@ -12,6 +12,7 @@
     "mongodb": "^3.5.0"
   },
   "scripts": {
+    "deploy": "npm run build && cd ..; sam deploy",
     "start": "npm run db:destroy && npm run build && npm run db:init && npm run local:invoke && npm run db:logs",
     "build": "tsc && npm run lint && cd ..; sam build",
     "lint": "tslint  -c ../tslint.json --project ../ --fix",
