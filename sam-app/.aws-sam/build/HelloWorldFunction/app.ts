@@ -14,6 +14,7 @@ exports.lambdaHandler = async (event: IEvent/*, context*/) => {
             statusCode: 200,
             body: JSON.stringify({
                 message: "Successful connection",
+                // location: ret.data.trim()
             }),
         };
     } catch (err) {
