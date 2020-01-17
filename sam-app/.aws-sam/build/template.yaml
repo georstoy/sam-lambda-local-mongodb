@@ -15,6 +15,7 @@ Resources:
       CodeUri: HelloWorldFunction
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
+      Timeout: 15
       Events:
         HelloWorld:
           Type: Api
