@@ -25,7 +25,7 @@ export const lambdaHandler = async (): Promise<ISuccessResponse | IErrorResponse
 
         */
 
-       //when sam local invoke --docker-network sam-lambda-local-mongodb_localLambdaNetwork
+       // when sam local invoke --docker-network sam-lambda-local-mongodb_localLambdaNetwork
        const url = "mongodb://potrebitel:parola@sam-lambda-local-mongodb_database_1";
 
         console.log("about to establish a connection to MongoDb...");
