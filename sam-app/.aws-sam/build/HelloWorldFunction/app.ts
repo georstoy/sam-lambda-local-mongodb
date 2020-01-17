@@ -1,11 +1,25 @@
 import { MongoClient } from "mongodb";
-let response;
 
-exports.lambdaHandler = async () => {
+export interface ISuccessResponse {
+    statusCode: number;
+    body: string;
+}
+export interface IErrorResponse {
+    error: string;
+    message: string;
+}
+let response: ISuccessResponse;
+
+export const lambdaHandler = async (): Promise<ISuccessResponse | IErrorResponse> => {
     try {
-        const url = "mongodb://potrebitel:parola@localhost:27017";
-        console.log("about to establish a connection...");
-        const client: MongoClient = await MongoClient.connect(url, { useUnifiedTopology: true });
+        // const url = "mongodb://potrebitel:parola@localhost:27017";
+        const url = "mongodb://host.docker.internal:27018";
+        console.log("about to establish a connection to MongoDb...");
+
+        const clientPromise = MongoClient.connect(url, { useUnifiedTopology: true });
+
+        const client: MongoClient = await clientPromise;
+
         console.log(client);
         response = {
             statusCode: 200,
@@ -14,6 +28,8 @@ exports.lambdaHandler = async () => {
                 client,
             }),
         };
+        // return response;
+
     } catch (err) {
         console.log(err);
         return err;

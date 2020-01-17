@@ -4,6 +4,8 @@ services:
   database:
     image: mongo:4.2
     restart: always
+    networks:
+      - localLambdaNetwork
     ports:
       # Host : Container
       - '27017:27017'
@@ -11,3 +13,7 @@ services:
       MONGO_INITDB_DATABASE: urls
       MONGO_INITDB_ROOT_USERNAME: potrebitel
       MONGO_INITDB_ROOT_PASSWORD: parola
+
+networks:
+  localLambdaNetwork:
+    driver: bridge
