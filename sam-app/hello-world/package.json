@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/mongodb": "^3.3.14",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "mongodb": "^3.5.0"
   },
   "scripts": {
